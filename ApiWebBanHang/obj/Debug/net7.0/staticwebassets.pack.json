@@ -1,0 +1,53 @@
+{
+  "Files": [
+    {
+      "Id": "C:\\Users\\DoanIT\\Desktop\\ApiWebBanHang\\ApiWebBanHang\\wwwroot\\images\\33023a6c-6359-4cc4-947c-7f5192492edb_iphone-14-pro-max-den-thumb-600x600.jpg",
+      "PackagePath": "staticwebassets\\images\\33023a6c-6359-4cc4-947c-7f5192492edb_iphone-14-pro-max-den-thumb-600x600.jpg"
+    },
+    {
+      "Id": "C:\\Users\\DoanIT\\Desktop\\ApiWebBanHang\\ApiWebBanHang\\wwwroot\\images\\71292ab8-7f3a-4923-89fe-6e6975e31621_iphone-15-pro-gold-thumbnew-600x600.webp",
+      "PackagePath": "staticwebassets\\images\\71292ab8-7f3a-4923-89fe-6e6975e31621_iphone-15-pro-gold-thumbnew-600x600.webp"
+    },
+    {
+      "Id": "C:\\Users\\DoanIT\\Desktop\\ApiWebBanHang\\ApiWebBanHang\\wwwroot\\images\\8708e9bb-0190-47f1-8470-e917736f2b86_iphone-14-pro-max-den-thumb-600x600.jpg",
+      "PackagePath": "staticwebassets\\images\\8708e9bb-0190-47f1-8470-e917736f2b86_iphone-14-pro-max-den-thumb-600x600.jpg"
+    },
+    {
+      "Id": "C:\\Users\\DoanIT\\Desktop\\ApiWebBanHang\\ApiWebBanHang\\wwwroot\\images\\96171eb1-3053-4007-8e3e-890f70a8f826_iphone-15-pro-gold-thumbnew-600x600.webp",
+      "PackagePath": "staticwebassets\\images\\96171eb1-3053-4007-8e3e-890f70a8f826_iphone-15-pro-gold-thumbnew-600x600.webp"
+    },
+    {
+      "Id": "C:\\Users\\DoanIT\\Desktop\\ApiWebBanHang\\ApiWebBanHang\\wwwroot\\images\\9c410e3b-ac04-462a-b350-f95dca95b699_iphone-14-pro-max-den-thumb-600x600.jpg",
+      "PackagePath": "staticwebassets\\images\\9c410e3b-ac04-462a-b350-f95dca95b699_iphone-14-pro-max-den-thumb-600x600.jpg"
+    },
+    {
+      "Id": "C:\\Users\\DoanIT\\Desktop\\ApiWebBanHang\\ApiWebBanHang\\wwwroot\\images\\ba36e9f3-9ad3-4266-af77-003368f0b705_iphone-14-pro-max-den-thumb-600x600.jpg",
+      "PackagePath": "staticwebassets\\images\\ba36e9f3-9ad3-4266-af77-003368f0b705_iphone-14-pro-max-den-thumb-600x600.jpg"
+    },
+    {
+      "Id": "C:\\Users\\DoanIT\\Desktop\\ApiWebBanHang\\ApiWebBanHang\\wwwroot\\images\\iphone-14-pro-max-den-thumb-600x600.jpg",
+      "PackagePath": "staticwebassets\\images\\iphone-14-pro-max-den-thumb-600x600.jpg"
+    },
+    {
+      "Id": "C:\\Users\\DoanIT\\Desktop\\ApiWebBanHang\\ApiWebBanHang\\wwwroot\\images\\iphone-15-pro-gold-thumbnew-600x600.webp",
+      "PackagePath": "staticwebassets\\images\\iphone-15-pro-gold-thumbnew-600x600.webp"
+    },
+    {
+      "Id": "obj\\Debug\\net7.0\\staticwebassets\\msbuild.ApiWebBanHang.Microsoft.AspNetCore.StaticWebAssets.props",
+      "PackagePath": "build\\Microsoft.AspNetCore.StaticWebAssets.props"
+    },
+    {
+      "Id": "obj\\Debug\\net7.0\\staticwebassets\\msbuild.build.ApiWebBanHang.props",
+      "PackagePath": "build\\ApiWebBanHang.props"
+    },
+    {
+      "Id": "obj\\Debug\\net7.0\\staticwebassets\\msbuild.buildMultiTargeting.ApiWebBanHang.props",
+      "PackagePath": "buildMultiTargeting\\ApiWebBanHang.props"
+    },
+    {
+      "Id": "obj\\Debug\\net7.0\\staticwebassets\\msbuild.buildTransitive.ApiWebBanHang.props",
+      "PackagePath": "buildTransitive\\ApiWebBanHang.props"
+    }
+  ],
+  "ElementsToRemove": []
+}
