@@ -14,7 +14,7 @@ namespace ApiWebBanHang.Models
 		public int Qty { get; set; }
 		public string? Image { get; set; }
 		public string? Detail { get; set; }
-		public DateTime CreatedAt { get; set; }
+		public DateTime CreatedAt { get; set; } = DateTime.Now;
 		public int? Status { get; set; }
 
 		

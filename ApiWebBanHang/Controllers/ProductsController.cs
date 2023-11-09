@@ -12,7 +12,7 @@ using Microsoft.AspNetCore.Cors;
 namespace ApiWebBanHang.Controllers
 {
 	[EnableCors("AllowReactApp")]
-	[Route("api/[controller]")]
+	[Route("api/[controller]/[action]")]
     [ApiController]
     public class ProductsController : ControllerBase
     {
@@ -26,19 +26,51 @@ namespace ApiWebBanHang.Controllers
            
         }
 
-        // GET: api/Products
-        [HttpGet]
-        public async Task<ActionResult<IEnumerable<Product>>> GetProducts()
-        {
-          if (_context.Products == null)
-          {
-              return NotFound();
-          }
-            return await _context.Products.ToListAsync();
-        }
+		// GET: api/Products
+		[HttpGet]
+		public async Task<ActionResult<IEnumerable<Product>>> GetProducts()
+		{
+			if (_context.Products == null)
+			{
+				return NotFound();
+			}
+			return await _context.Products.ToListAsync();
+		}
+		[HttpGet("{page}/{pageSize}")]
+		public async Task<ActionResult<IEnumerable<Product>>> GetProductsPage(int page, int pageSize)
+		{
+			var totalProducts = await _context.Products.CountAsync();
+			var totalPages = (int)Math.Ceiling((double)totalProducts / pageSize);
 
-        // GET: api/Products/5
-        [HttpGet("{id}")]
+			if (page < 1 || page > totalPages)
+			{
+				return BadRequest("Invalid page number");
+			}
+
+			var products = await _context.Products
+				.Skip((page - 1) * pageSize)
+				.Take(pageSize)
+				.ToListAsync();
+
+			if (products == null || products.Count == 0)
+			{
+				return NotFound();
+			}
+
+			return Ok(new
+			{
+				Page = page,
+				PageSize = pageSize,
+				TotalPages = totalPages,
+				Data = products
+			});
+		}
+
+
+
+
+		// GET: api/Products/5
+		[HttpGet("{id}")]
         public async Task<ActionResult<Product>> GetProduct(int id)
         {
           if (_context.Products == null)
@@ -228,7 +260,31 @@ namespace ApiWebBanHang.Controllers
             return NoContent();
         }
 
-        private bool ProductExists(int id)
+		// GET: api/Products/5
+		[HttpGet("{	?}")]
+		public async Task<ActionResult<IEnumerable<Product>>> GetProductsSearch(string? name)
+		{
+			if (name == null)
+			{
+				return await _context.Products.ToListAsync();
+			}
+			if (_context.Products == null)
+			{
+				return NotFound();
+			}
+			var product = await _context.Products.Where(p => p.Name.Contains(name)).ToListAsync();
+
+			if (product == null || product.Count == 0)
+			{
+				return NotFound();
+			}
+
+			return product;
+
+		}
+		
+
+		private bool ProductExists(int id)
         {
             return (_context.Products?.Any(e => e.Id == id)).GetValueOrDefault();
         }

@@ -7,10 +7,12 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using ApiWebBanHang.Data;
 using ApiWebBanHang.Models;
+using Microsoft.AspNetCore.Cors;
 
 namespace ApiWebBanHang.Controllers
 {
-    [Route("api/[controller]")]
+	[EnableCors("AllowReactApp")]
+	[Route("api/[controller]")]
     [ApiController]
     public class SlidersController : ControllerBase
     {

@@ -8,6 +8,7 @@ using Microsoft.EntityFrameworkCore;
 using ApiWebBanHang.Data;
 using ApiWebBanHang.Models;
 using Microsoft.AspNetCore.Cors;
+using System.Drawing.Drawing2D;
 
 namespace ApiWebBanHang.Controllers
 {
@@ -55,33 +56,46 @@ namespace ApiWebBanHang.Controllers
         // PUT: api/Categories/5
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
         [HttpPut("{id}")]
-        public async Task<IActionResult> PutCategory(int id, [FromForm] Category category)
-        {
-            //if (id != category.Id)
-            //{
-            //    return BadRequest();
-            //}
+		public async Task<IActionResult> PutCategory(int id, [FromForm] Category category)
+		{
 
-            _context.Entry(category).State = EntityState.Modified;
+			var existingCategory = await _context.Categories.FindAsync(id);
 
-            try
-            {
-                await _context.SaveChangesAsync();
-            }
-            catch (DbUpdateConcurrencyException)
-            {
-                if (!CategoryExists(id))
-                {
-                    return NotFound();
-                }
-                else
-                {
-                    throw;
-                }
-            }
+			if (existingCategory == null)
+			{
+				return NotFound("Không tìm thấy ID đã cho.");
+			}
 
-            return NoContent();
-        }
+
+
+			// Cập nhật thông tin sản phẩm
+			existingCategory.Name = category.Name;
+			existingCategory.Slug = category.Slug;
+			existingCategory.Parent_Id = category.Parent_Id;
+			existingCategory.Sort_Order = category.Sort_Order;
+			existingCategory.Status = category.Status;
+
+			try
+			{
+				_context.Update(existingCategory);
+				await _context.SaveChangesAsync(); // Lưu thay đổi vào cơ sở dữ liệu
+			}
+			catch (DbUpdateConcurrencyException)
+			{
+				if (!CategoryExists(id))
+				{
+					return NotFound("Không tìm thấy ID đã cho.");
+				}
+				else
+				{
+					throw;
+				}
+			}
+
+			return Ok(existingCategory);
+		}
+
+
 
 		// POST: api/Categories
 		// To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754

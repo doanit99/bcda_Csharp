@@ -14,5 +14,6 @@ namespace ApiWebBanHang.Data
 		public DbSet<Brand> Brands { get; set; }
 		public DbSet<Product> Products { get; set; }
 		public DbSet<Slider> Sliders { get; set; }
+		public DbSet<User> Users { get; set; }
 	}
 }
