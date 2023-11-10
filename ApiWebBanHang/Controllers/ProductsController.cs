@@ -261,7 +261,7 @@ namespace ApiWebBanHang.Controllers
         }
 
 		// GET: api/Products/5
-		[HttpGet("{	?}")]
+		[HttpGet("{name?}")]
 		public async Task<ActionResult<IEnumerable<Product>>> GetProductsSearch(string? name)
 		{
 			if (name == null)

@@ -118,7 +118,27 @@ namespace ApiWebBanHang.Controllers
             return NoContent();
         }
 
-        private bool UserExists(int id)
+		[HttpGet("{userName}/{password}")]
+		public async Task<ActionResult<IEnumerable<User>>> Login(string userName, string password)
+		{
+			if (_context.Users == null)
+			{
+				return NotFound();
+			}
+
+			var user = await _context.Users
+				.Where(u => u.UserName == userName && u.Password == password)
+				.SingleOrDefaultAsync();
+
+			if (user == null)
+			{
+				return NotFound();
+			}
+
+			return Ok(user);
+		}
+
+		private bool UserExists(int id)
         {
             return (_context.Users?.Any(e => e.Id == id)).GetValueOrDefault();
         }
